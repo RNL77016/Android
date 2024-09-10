@@ -7,21 +7,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heroesapp.MainActivity
 import com.example.heroesapp.R
-import com.example.heroesapp.adapters.CategoryAdapter
-import com.example.heroesapp.models.Category
+import com.example.heroesapp.adapters.IndustryAdapter
+import com.example.heroesapp.models.Industry
 import com.example.heroesapp.models.User
 
 class PublisherActivity : AppCompatActivity() {
     lateinit var usernameTV : TextView
     lateinit var logoutBtn : ImageView
-    lateinit var categoryRecyclerView: RecyclerView
+    lateinit var industryRecyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,9 +26,9 @@ class PublisherActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE)
         usernameTV = findViewById(R.id.usernameTV)
         logoutBtn = findViewById(R.id.logoutBtn)
-        categoryRecyclerView = findViewById(R.id.category_recycleview)
-        categoryRecyclerView.adapter = CategoryAdapter(Category.categories)
-        categoryRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        industryRecyclerView = findViewById(R.id.industry_recycleview)
+        industryRecyclerView.adapter = IndustryAdapter(Industry.industries)
+        industryRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
 
         val user = User.users[1]
