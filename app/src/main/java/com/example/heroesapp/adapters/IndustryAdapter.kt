@@ -1,5 +1,6 @@
 package com.example.heroesapp.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import com.example.heroesapp.models.Industry
 import com.squareup.picasso.Picasso
 
 
-class IndustryAdapter(val industryList: List<Industry>) : RecyclerView.Adapter<IndustryViewHolder>() {
+class IndustryAdapter(val industryList: List<Industry>,val onClick: (Industry) -> Unit) : RecyclerView.Adapter<IndustryViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IndustryViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.industry_item,parent,false)
         return IndustryViewHolder(view)
@@ -26,6 +27,10 @@ class IndustryAdapter(val industryList: List<Industry>) : RecyclerView.Adapter<I
         val industry = industryList[position]
         holder.industryNameTV.text = industry.name
         Picasso.get().load(industry.image).into(holder.industryImage)
+        holder.itemView.setOnClickListener {
+            //Log.i("IndustryAdapter","Click en: ${industry.name}")
+            onClick(industry)
+        }
     }
 
 }

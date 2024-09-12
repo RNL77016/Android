@@ -27,7 +27,12 @@ class PublisherActivity : AppCompatActivity() {
         usernameTV = findViewById(R.id.usernameTV)
         logoutBtn = findViewById(R.id.logoutBtn)
         industryRecyclerView = findViewById(R.id.industry_recycleview)
-        industryRecyclerView.adapter = IndustryAdapter(Industry.industries)
+        industryRecyclerView.adapter = IndustryAdapter(Industry.industries){ industry ->
+            Log.i("Industry desde Publisher", industry.name)
+            val intent = Intent(this@PublisherActivity,HeroesActivity::class.java)
+            intent.putExtra("industryId",industry.id)
+            startActivity(intent)
+        }
         industryRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
 
@@ -45,4 +50,5 @@ class PublisherActivity : AppCompatActivity() {
 
         }
     }
+
 }

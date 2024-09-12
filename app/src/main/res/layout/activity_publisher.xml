@@ -56,6 +56,7 @@
 
         </LinearLayout>
 
+
         <TextView
             android:id="@+id/insdutryTV"
             android:layout_width="match_parent"
@@ -69,7 +70,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/headerLayout"
-            app:layout_constraintVertical_bias="0.304" />
+            app:layout_constraintVertical_bias="0.429" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/industry_recycleview"
@@ -77,10 +78,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/insdutryTV"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

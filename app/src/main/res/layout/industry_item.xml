@@ -4,8 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="10dp"
-    >
+    android:layout_margin="10dp">
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -15,8 +14,8 @@
         >
         <ImageView
             android:id="@+id/industry_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/aquaman"
             android:layout_gravity="center"
             />
@@ -26,6 +25,7 @@
         android:id="@+id/industry_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30sp"
         android:text="Nombre de la industria"
         android:layout_gravity="center_horizontal"
         />
