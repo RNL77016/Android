@@ -18,7 +18,7 @@ class HeroesActivity : AppCompatActivity() {
         val heroesId = intent.getIntExtra("heroesId",0)
         Log.i("HeroesActivity","ID: ${heroesId}")
 
-        val heroe = Industry.industries.firstOrNull { heroe -> heroe.id == heroesId }
-        Log.i("HeroesActivity", heroe.toString())
+        val hero = Industry.industries.firstOrNull { hero -> hero.id == heroesId }
+        Log.i("HeroesActivity", hero.toString())
     }
 }
