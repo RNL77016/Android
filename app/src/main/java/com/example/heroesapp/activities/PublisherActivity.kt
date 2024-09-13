@@ -11,14 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heroesapp.MainActivity
 import com.example.heroesapp.R
-import com.example.heroesapp.adapters.IndustryAdapter
-import com.example.heroesapp.models.Industry
+import com.example.heroesapp.adapters.PublisherAdapter
+import com.example.heroesapp.models.Publisher
 import com.example.heroesapp.models.User
 
 class PublisherActivity : AppCompatActivity() {
     lateinit var usernameTV : TextView
     lateinit var logoutBtn : ImageView
-    lateinit var industryRecyclerView: RecyclerView
+    lateinit var publisherRecyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,14 +26,15 @@ class PublisherActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE)
         usernameTV = findViewById(R.id.usernameTV)
         logoutBtn = findViewById(R.id.logoutBtn)
-        industryRecyclerView = findViewById(R.id.industry_recycleview)
-        industryRecyclerView.adapter = IndustryAdapter(Industry.industries){ industry ->
-            Log.i("Industry desde Publisher", industry.name)
+        publisherRecyclerView = findViewById(R.id.publisher_recycleview)
+
+        publisherRecyclerView.adapter = PublisherAdapter(Publisher.publishers){ publisher ->
+            Log.i("Heroes desde Publisher", publisher.name)
             val intent = Intent(this@PublisherActivity,HeroesActivity::class.java)
-            intent.putExtra("industryId",industry.id)
+            intent.putExtra("publisherId",publisher.id)
             startActivity(intent)
         }
-        industryRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        publisherRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
 
         val user = User.users[1]

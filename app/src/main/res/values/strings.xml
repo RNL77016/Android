@@ -4,5 +4,5 @@
     <string name="password">Contraseña</string>
     <string name="login">Iniciar sesion</string>
     <string name="welcome_text">welcome_text</string>
-    <string name="which_industy_is_better">¿Cuál prefieres?</string>
+    <string name="choose_the_publisher">¿Cuál prefieres?</string>
 </resources>

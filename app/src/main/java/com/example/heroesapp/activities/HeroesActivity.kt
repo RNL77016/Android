@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.heroesapp.R
-import com.example.heroesapp.models.Industry
+import com.example.heroesapp.models.Publisher
 
 class HeroesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,10 +13,10 @@ class HeroesActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_heroes)
 
-        val heroesId = intent.getIntExtra("heroesId",0)
-        Log.i("HeroesActivity","ID: ${heroesId}")
+        val publisherId = intent.getIntExtra("publisherId",0)
+        Log.i("PublisherActivity","ID: ${publisherId}")
 
-        val hero = Industry.industries.firstOrNull { hero -> hero.id == heroesId }
-        Log.i("HeroesActivity", hero.toString())
+        val publisher = Publisher.publishers.firstOrNull { publisher -> publisher.id == publisherId }
+        Log.i("PublisherActivity", publisher.toString())
     }
 }

@@ -58,10 +58,10 @@
 
 
         <TextView
-            android:id="@+id/insdutryTV"
+            android:id="@+id/publisherTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/which_industy_is_better"
+            android:text="@string/choose_the_publisher"
             android:textAlignment="center"
             android:textSize="50sp"
             android:textStyle="bold"
@@ -73,14 +73,14 @@
             app:layout_constraintVertical_bias="0.429" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/industry_recycleview"
+            android:id="@+id/publisher_recycleview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/insdutryTV"
+            app:layout_constraintTop_toBottomOf="@+id/publisherTV"
             app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
