@@ -39,10 +39,10 @@ class PublisherActivity : AppCompatActivity() {
             intent.putExtra("publisherId",publisher.id)
             startActivity(intent)
         }
-        publisherRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        publisherRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
 
-        val user = User.users[1]
+        val user = User.users[0]
         usernameTV.text = user.computedName
         logoutBtn.setOnClickListener {
             Log.i("LOGOUT","Cerrando sesion")
