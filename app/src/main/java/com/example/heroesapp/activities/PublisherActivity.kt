@@ -1,5 +1,6 @@
 package com.example.heroesapp.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,11 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heroesapp.MainActivity
 import com.example.heroesapp.R
+import com.example.heroesapp.adapters.HeroAdapter
 import com.example.heroesapp.adapters.PublisherAdapter
+import com.example.heroesapp.models.Hero
 import com.example.heroesapp.models.Publisher
 import com.example.heroesapp.models.User
 
@@ -19,6 +23,7 @@ class PublisherActivity : AppCompatActivity() {
     lateinit var usernameTV : TextView
     lateinit var logoutBtn : ImageView
     lateinit var publisherRecyclerView: RecyclerView
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
