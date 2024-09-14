@@ -21,11 +21,11 @@ data class Hero(
             Hero(7, "Thor", "hahaha","https://pngmaterial.com/dvsxyz02/uploads/thor-desenho-png.png",1),
             Hero(8,"Hulk", "hahaha","https://i.pinimg.com/originals/9d/28/ed/9d28ed4f08d480d51708e1213b8a94a2.png",1),
             Hero(9, "Spiderman", "hahaha","https://purepng.com/public/uploads/thumbnail//purepng.com-spidermanspider-manspidermansuperherocomic-bookmarvel-comicscharacterstan-leegamesmovie-1701528656381ojc7l.png",1),
-            Hero(10,"Vision", "hahaha","https://static.wikia.nocookie.net/heroes-v-villains/images/3/3e/Vision_Marvel_Cinematic_Universe.png/revision/latest?cb=20181123215955",1),
+            Hero(10,"Vision", "hahaha","https://static.wikia.nocookie.net/vsdebating/images/9/9d/Vision_art.png/revision/latest/scale-to-width-down/333?cb=20170724120923",1),
 
             //DC
-            Hero(11,"Batman", "hahaha","https://i.pinimg.com/originals/d5/87/77/d5877773508cef948af997e040a99870.png",2),
-            Hero(12,"Superman", "hahaha","https://i.pinimg.com/originals/84/3d/3c/843d3cc2bea7c8df224e878e8b6326dd.png",2),
+            Hero(11,"Batman", "hahaha","https://pngimg.com/d/batman_PNG52.png",2),
+            Hero(12,"Superman", "hahaha","https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8e4c3336-0621-4c1d-ad77-dee35d7a12d2/dd0urcn-e8eeabb6-0d8a-45dc-91c8-79a77d7933e7.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhlNGMzMzM2LTA2MjEtNGMxZC1hZDc3LWRlZTM1ZDdhMTJkMlwvZGQwdXJjbi1lOGVlYWJiNi0wZDhhLTQ1ZGMtOTFjOC03OWE3N2Q3OTMzZTcucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.7LGKGpPRAH2ZBmakFsBsxp5urKE-lg1pgnSYmjL4QH4",2),
             Hero(13,"Aquaman", "hahaha","https://static.wikia.nocookie.net/death-battle-fanon-wiki-en-espanol/images/8/84/Aquaman.png/revision/latest?cb=20190918015708&path-prefix=es",2),
             Hero(14,"Wonderwoman", "hahaha","https://www.pngarts.com/files/1/Wonder-Woman-PNG-Image-Background.png",2),
             Hero(15,"Flash", "hahaha","https://i.pinimg.com/originals/83/10/59/83105916580f7b38172a68bc0cd688bb.png",2),
