@@ -52,9 +52,7 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.make(v,"El correo electronico o la contraseña son invalidos", Snackbar.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            // Intents. Objetos que permiten la navegacion entre actividades
-            // Intent explicitos:
-            // Intent implicitos
+
             Log.i("LOGIN_SUCCESSFUL","Inicio de sesion correcto")
             val editor = sharedPreferences.edit()
             editor.putBoolean("isLogged",true)
