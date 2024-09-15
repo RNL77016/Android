@@ -1,5 +1,7 @@
 package com.example.heroesapp.models
 
+// Creación de la lista de publishers
+
 data class Publisher(val id : Int, val name:String, val image :String){
 
     companion object{

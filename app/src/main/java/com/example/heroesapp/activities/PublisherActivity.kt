@@ -23,37 +23,37 @@ class PublisherActivity : AppCompatActivity() {
     lateinit var usernameTV : TextView
     lateinit var logoutBtn : ImageView
     lateinit var publisherRecyclerView: RecyclerView
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_publisher)
+
+        // Inicializa SharedPreferences y vistas
         val sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE)
         usernameTV = findViewById(R.id.usernameTV)
         logoutBtn = findViewById(R.id.logoutBtn)
         publisherRecyclerView = findViewById(R.id.publisher_recycleview)
 
-        publisherRecyclerView.adapter = PublisherAdapter(Publisher.publishers){ publisher ->
-            Log.i("Heroes desde Publisher", publisher.name)
-            val intent = Intent(this@PublisherActivity,HeroesActivity::class.java)
-            intent.putExtra("publisherId",publisher.id)
+        // Configura el RecyclerView con adaptador
+        publisherRecyclerView.adapter = PublisherAdapter(Publisher.publishers) { publisher ->
+            val intent = Intent(this@PublisherActivity, HeroesActivity::class.java)
+            intent.putExtra("publisherId", publisher.id)
             startActivity(intent)
         }
-        publisherRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        publisherRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-
+        // Muestra el nombre del usuario y configura el botón de logout
         val user = User.users[0]
         usernameTV.text = user.computedName
         logoutBtn.setOnClickListener {
-            Log.i("LOGOUT","Cerrando sesion")
             val editor = sharedPreferences.edit()
-            editor.remove("isLogged")
-            editor.apply()
+            editor.remove("isLogged").apply()
 
-            val intent = Intent(this@PublisherActivity,MainActivity::class.java)
+            val intent = Intent(this@PublisherActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
-
 }

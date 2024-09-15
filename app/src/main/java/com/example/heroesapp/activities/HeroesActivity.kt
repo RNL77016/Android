@@ -23,24 +23,27 @@ class HeroesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_heroes)
+
+        // Inicializa vistas
         heroesTitle = findViewById(R.id.heroes_title)
         heroesRecyclerView = findViewById(R.id.heroes_recyclerview)
-        val publisherId = intent.getIntExtra("publisherId",0)
-        Log.i("PublisherActivity","ID: ${publisherId}")
 
-        val publisher = Publisher.publishers.firstOrNull { publisher -> publisher.id == publisherId }
-        Log.i("PublisherActivity", publisher.toString())
+        // Obtiene el publisherId desde el intent
+        val publisherId = intent.getIntExtra("publisherId", 0)
+        val publisher = Publisher.publishers.firstOrNull { it.id == publisherId }
 
+        // Asigna el nombre del publisher al título
         heroesTitle.text = publisher?.name
-        val heroes = Hero.heroes.filter { hero -> hero.heroesId == publisherId }
-        Log.i("PublisherActivity", heroes.toString())
 
-        heroesRecyclerView.adapter = HeroAdapter(heroes){ hero: Hero ->
-            val intent = Intent(this@HeroesActivity,HeroDetailActivity::class.java)
-            intent.putExtra("heroId",hero.id)
+        // Filtra héroes del publisher
+        val heroes = Hero.heroes.filter { it.heroesId == publisherId }
+
+        // Configura RecyclerView con adaptador y GridLayoutManager
+        heroesRecyclerView.adapter = HeroAdapter(heroes) { hero ->
+            val intent = Intent(this, HeroDetailActivity::class.java)
+            intent.putExtra("heroId", hero.id)
             startActivity(intent)
         }
-        heroesRecyclerView.layoutManager = GridLayoutManager(this,2)
-
+        heroesRecyclerView.layoutManager = GridLayoutManager(this, 2)
     }
 }

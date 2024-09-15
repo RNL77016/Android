@@ -13,29 +13,32 @@ import com.squareup.picasso.Picasso
 
 
 class PublisherAdapter(val publisherList: List<Publisher>, val onClick: (Publisher) -> Unit) : RecyclerView.Adapter<PublisherViewHolder>() {
+
+    // Infla el layout para cada ítem
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PublisherViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.publisher_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.publisher_item, parent, false)
         return PublisherViewHolder(view)
     }
 
+    // Devuelve el número de publishers
     override fun getItemCount(): Int {
         return publisherList.count()
     }
 
+    // Asigna datos a cada ViewHolder
     override fun onBindViewHolder(holder: PublisherViewHolder, position: Int) {
         val publisher = publisherList[position]
         holder.publisherNameTV.text = publisher.name
         Picasso.get().load(publisher.image).into(holder.publisherImage)
         holder.itemView.setOnClickListener {
-            //Log.i("PublisherAdapter","Click en: ${publisher.name}")
             onClick(publisher)
         }
     }
-
 }
 
-class PublisherViewHolder(view : View) : ViewHolder(view){
-    val publisherNameTV : TextView = view.findViewById(R.id.publisher_name)
-    val publisherImage : ImageView = view.findViewById(R.id.publisher_image)
+class PublisherViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    // Referencia al TextView que muestra el nombre del publisher
+    val publisherNameTV: TextView = view.findViewById(R.id.publisher_name)
+    // Referencia al ImageView que muestra la imagen del publisher
+    val publisherImage: ImageView = view.findViewById(R.id.publisher_image)
 }
-

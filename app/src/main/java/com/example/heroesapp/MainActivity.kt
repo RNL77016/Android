@@ -14,50 +14,54 @@ import com.example.heroesapp.models.User
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
+
+    // Variables para los campos de texto y botón de login
     lateinit var emailEditText: EditText
-    lateinit var passwordEditText : EditText
-    lateinit var loginBtn : Button
+    lateinit var passwordEditText: EditText
+    lateinit var loginBtn: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        // Verifica si el usuario ya está logueado
         val sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE)
-        val isLogged = sharedPreferences.getBoolean("isLogged",false)
-        if(isLogged){
-            val intent = Intent(this@MainActivity,PublisherActivity::class.java)
+        val isLogged = sharedPreferences.getBoolean("isLogged", false)
+        if (isLogged) {
+            val intent = Intent(this@MainActivity, PublisherActivity::class.java)
             startActivity(intent)
             finish()
         }
-        Log.i("IS_LOGGED",isLogged.toString())
+
+        // Inicializa las vistas
         emailEditText = findViewById(R.id.emailET)
         passwordEditText = findViewById(R.id.passwordET)
         loginBtn = findViewById(R.id.btnLogin)
-        loginBtn.setOnClickListener { v->
-            Log.i("AndroidLogGato","Iniciando sesion")
+
+        // Acción del botón de login
+        loginBtn.setOnClickListener { v ->
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
-            Log.i("Email",email)
-            Log.i("Password",password)
-            if(email.isEmpty() || password.isEmpty()){
-                Log.i("LOGIN_ERROR","Email o password estan vacios")
-                Snackbar.make(v,"El correo electronico o la contraseña estan vacios", Snackbar.LENGTH_SHORT).show()
+
+            // Verifica si los campos están vacíos
+            if (email.isEmpty() || password.isEmpty()) {
+                Snackbar.make(v, "El correo electrónico o la contraseña están vacíos", Snackbar.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val isValidUser = User.users.any {
-                    user-> user.email == email && user.password == password
-            }
-            if(!isValidUser){
-                Log.i("LOGIN_ERROR","Email o password son invalidos")
-                Snackbar.make(v,"El correo electronico o la contraseña son invalidos", Snackbar.LENGTH_SHORT).show()
+            // Verifica si las credenciales son válidas
+            val isValidUser = User.users.any { user -> user.email == email && user.password == password }
+            if (!isValidUser) {
+                Snackbar.make(v, "El correo electrónico o la contraseña son inválidos", Snackbar.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            Log.i("LOGIN_SUCCESSFUL","Inicio de sesion correcto")
+            // Guarda el estado de sesión y navega a la siguiente actividad
             val editor = sharedPreferences.edit()
-            editor.putBoolean("isLogged",true)
+            editor.putBoolean("isLogged", true)
             editor.apply()
-            val intent = Intent(this@MainActivity,PublisherActivity::class.java)
+            val intent = Intent(this@MainActivity, PublisherActivity::class.java)
             startActivity(intent)
             finish()
         }

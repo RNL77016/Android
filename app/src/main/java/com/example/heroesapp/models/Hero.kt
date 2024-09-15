@@ -2,6 +2,8 @@ package com.example.heroesapp.models
 
 import com.example.heroesapp.models.Hero
 
+//Creacion de la lista de heroes
+
 data class Hero(
     val id: Int,
     val name: String,
